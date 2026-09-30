@@ -10,10 +10,10 @@ class Logger {
     static Future log(String content, LogLevel level) async {
         final logFile = File(g.logFilePath);
 
-        if (await logFile.exists() && g.currentConfig.getValue(.logRotation)) {
+        if (await logFile.exists() && g.config.getValue(.logRotation)) {
             final lineCount = (await logFile.readAsLines()).length;
 
-            if (lineCount > g.currentConfig.getValue(.logRotationLimit)) {
+            if (lineCount > g.config.getValue(.logRotationLimit)) {
                 await logFile.write('');
             }
         }

@@ -1,5 +1,6 @@
 enum ConfigProperty {
     serverExeFileName,
+    javaPath,
     javaArgs,
     autoRestartSeconds,
     customCommandPrefix,
@@ -9,6 +10,7 @@ enum ConfigProperty {
     static ConfigProperty? from(String str) {
         return switch (str) {
             'serverExeFileName' => .serverExeFileName,
+            'javaPath' => .javaPath,
             'javaArgs' => .javaArgs,
             'autoRestartSeconds' => .autoRestartSeconds,
             'customCommandPrefix' => .customCommandPrefix,
@@ -23,6 +25,7 @@ enum ConfigProperty {
     String toString() {
         return switch (this) {
             .serverExeFileName => 'serverExeFileName',
+            .javaPath => 'javaPath',
             .javaArgs => 'javaArgs',
             .autoRestartSeconds => 'autoRestartSeconds',
             .customCommandPrefix => 'customCommandPrefix',

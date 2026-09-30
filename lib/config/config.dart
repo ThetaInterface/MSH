@@ -7,6 +7,7 @@ export 'package:msh/config/config_field_type.dart';
 class Config {
     static const Map<ConfigProperty, dynamic> defaultConfig = {
         .serverExeFileName: 'server.jar',
+        .javaPath: 'java',
         .javaArgs: '',
         .autoRestartSeconds: 43200,
         .customCommandPrefix: '.',
@@ -16,6 +17,7 @@ class Config {
 
     static const Map<ConfigProperty, ConfigFieldType> fieldTypes = {
         .serverExeFileName: .string,
+        .javaPath: .string,
         .javaArgs: .string,
         .autoRestartSeconds: .integer,
         .customCommandPrefix: .string,
