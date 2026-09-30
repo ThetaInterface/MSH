@@ -15,7 +15,7 @@ final String customCommandsPath = path.join(mshDirectoryPath, 'custom_commands.j
 
 final String logFilePath = path.join(mshDirectoryPath, 'log.txt');
 
-late final Config currentConfig;
+late final Config config;
 
 Future init() async {
     Directory mshDir = Directory(mshDirectoryPath);
@@ -36,10 +36,10 @@ Future init() async {
             indent: true
         );
 
-        currentConfig = Config(fields: {}).repair();
+        config = Config(fields: {}).repair();
     } else {
-        currentConfig = Config.fromJson(configFileContent).repair();
+        config = Config.fromJson(configFileContent).repair();
     }
 
-    await configFile.writeJson(currentConfig.toJson(), indent: true);
+    await configFile.writeJson(config.toJson(), indent: true);
 }
