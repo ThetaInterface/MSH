@@ -8,9 +8,11 @@ final String programPath = Platform.script.toFilePath().endsWith('.dart') ?
     "/home/alpha/temp/server_test/body/" // debug
     : path.dirname(Platform.resolvedExecutable);
 
+final String opsFilePath = path.join(programPath, 'ops.json');
+
 final String mshDirectoryPath = path.join(programPath, 'msh');
 
-final String configPath = path.join(mshDirectoryPath, 'config.ini');
+final String configPath = path.join(mshDirectoryPath, 'config.json');
 final String customCommandsPath = path.join(mshDirectoryPath, 'custom_commands.json');
 
 final String logFilePath = path.join(mshDirectoryPath, 'log.txt');
@@ -42,4 +44,10 @@ Future init() async {
     }
 
     await configFile.writeJson(config.toJson(), indent: true);
+
+    final customCommandsFile = File(customCommandsPath);
+
+    if (!await customCommandsFile.exists()) {
+        await customCommandsFile.create();
+    }
 }

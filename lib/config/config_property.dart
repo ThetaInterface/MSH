@@ -5,7 +5,8 @@ enum ConfigProperty {
     autoRestartSeconds,
     customCommandPrefix,
     logRotation,
-    logRotationLimit;
+    logRotationLimit,
+    initializationTimeout;
 
     static ConfigProperty? from(String str) {
         return switch (str) {
@@ -16,6 +17,7 @@ enum ConfigProperty {
             'customCommandPrefix' => .customCommandPrefix,
             'logRotation' => .logRotation,
             'logRotationLimit' => .logRotationLimit,
+            'initializationTimeout' => initializationTimeout,
 
             _ => null
         };
@@ -30,7 +32,8 @@ enum ConfigProperty {
             .autoRestartSeconds => 'autoRestartSeconds',
             .customCommandPrefix => 'customCommandPrefix',
             .logRotation => 'logRotation',
-            .logRotationLimit => 'logRotationLimit'
+            .logRotationLimit => 'logRotationLimit',
+            .initializationTimeout => 'initializationTimeout'
         };
     }
 }
